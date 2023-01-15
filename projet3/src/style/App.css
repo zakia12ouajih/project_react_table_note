@@ -1,0 +1,27 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ul{
+    display: flex;
+    
+
+}
+li{
+    list-style-type: none;
+    padding-left: 70px;
+    font-size: 20px;
+    margin-top: 3px;
+
+}
+li a{
+    color: white;
+    text-decoration: none;
+    
+}
+
+.div{
+    background-color: yellowgreen;
+    height: 30px;
+}
