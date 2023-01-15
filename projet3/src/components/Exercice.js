@@ -1,5 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import CalculeNote from "./CalculeNote";
+
 export default function Exercice(){
     const [nom,setNom] = React.useState('')
     const [matiere,SetMatiere] = React.useState('')
@@ -37,13 +39,12 @@ export default function Exercice(){
         obj.note = note
         setSerie([...serie,obj])
         
-        console.log(nom, matiere, note)
     }
     function supprimer(event){
         setSerie(serie.filter((item)=>item.id !== parseFloat(event.target.id)))
     }
     
-            
+
 
     return(
         
@@ -88,7 +89,11 @@ export default function Exercice(){
                     />
                 </div>
             
-                <input className="btn btn-primary mt-2" type='submit' value='ajouter' onClick={handlerClick}/>
+                <input className="btn btn-primary mt-2 col-12" 
+                    type='submit' 
+                    value='ajouter' 
+                    onClick={handlerClick}
+                />
             </form>
             
             
@@ -114,7 +119,7 @@ export default function Exercice(){
                             <td>
                                 <button 
                                     id={item.id}
-                                    className="btn btn-danger"
+                                    className="btn btn-danger col-4"
                                     onClick={supprimer}
                                     >supprimer
                                 </button>
@@ -125,47 +130,10 @@ export default function Exercice(){
                     </tbody>
                 </table>
             </div> 
-            
-            
+            <CalculeNote
+                notes = {serie}
+            />
         </div>
         
     )
 }
-// <div className="container">
-        //     nom: <br></br><br></br>
-        //     <input type='text' onChange={handlerChange} value={nom} id='nom'/><br></br><br></br>
-            
-        //     matiere: <br></br><br></br>
-        //     <select name="matiere" id="matiere" onChange={handlerChange}>
-        //         <option value="math">MATH</option>
-        //         <option value='physique'>PHYSIQUE</option>
-        //         <option value='francais'>FRANCAIS</option>
-        //     </select> <br></br><br></br>
-        //     note: <br></br><br></br>
-        //     <input type='number' onChange={handlerChange} id="note" name="note"/><br></br><br></br>
-        //     <input type='submit' onClick={handlerClick} value='ajouter'/>
-
-            
-
-        //     <table>
-        //         <thead>
-        //         <tr>
-        //             <th>matiere</th>
-        //             <th>note</th>
-        //             <th>supprimer</th>
-        //         </tr>
-        //         </thead>
-        //         <tbody>
-        //         {serie.map((item)=>{
-        //             return(
-        //                 <tr key={item.id}>
-        //                     <td>{item.matiere}</td>
-        //                     <td>{item.note}</td>
-        //                     <td><button onClick={supprimer}>supprimer</button></td>
-        //                 </tr>
-        //             )
-        //         })}
-        //         </tbody>
-        //     </table>
-            
-        // </div>
