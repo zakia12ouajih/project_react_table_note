@@ -3,7 +3,8 @@ import React from "react";
 // import Note from "./Note";
 // import { Routes, Route } from 'react-router-dom';
 import '../style/App.css'
-import Exercice from "./Exercice";
+import Fruit1 from "./Fruit1";
+// import Exercice from "./Exercice";
 // import Blog from "./Blog";
 // import Home from "./Home";
 // import About from "./About";
@@ -102,10 +103,49 @@ import Exercice from "./Exercice";
 //         </>
 //     )
 // }
+// export default function App(){
+//     return(
+//         <>
+//             <Exercice/>
+//         </>
+//     )
+// }
+
+// function App(props){
+//     function ajouter(){
+//         props.addFruit({type:"ADD_FRUIT", payload:{id:14,nom_fruit:'orange'}})
+//     }
+//     function vider(){
+//         props.CLEAR()
+//     }
+//     return(
+//         <>
+//             <h3>store from App</h3>
+            
+//             <button onClick={ajouter} type="button" class="btn btn-primary">ajouter</button>
+//             <button onClick={()=>props.vider({type:"CLEAR"})} type="button" class="btn btn-primary">vider</button>
+            
+//             {props.fruits.map((f,idx)=><div key={idx}>{f.nom_fruit}</div>)}
+//         </>
+//     )
+// }
+// function mapStateToProps(state){
+//     return{fruits:state.fruits}
+// }
+// function mapDispatchToProps(dispatch){
+//     return{
+//         addFruit:function(action){
+//             dispatch(action)
+//         },
+//         vider:function(action){
+//             dispatch(action)
+//         }
+//     }
+// }
+// export default connect(mapStateToProps,mapDispatchToProps)(App)
 export default function App(){
     return(
-        <>
-            <Exercice/>
-        </>
+        <Fruit1/>
+        
     )
 }
