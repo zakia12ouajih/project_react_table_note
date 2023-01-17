@@ -9,6 +9,7 @@ export default function Exercice(){
     const [serie,setSerie] = React.useState([])
     const [id,setId] = React.useState(1)
     const obj = {}
+    const [isClicked,setIsClicked] = React.useState(false)
     
     
     function handlerChange(event){
@@ -38,6 +39,7 @@ export default function Exercice(){
         obj.matiere = matiere
         obj.note = note
         setSerie([...serie,obj])
+        setIsClicked(true)
         
     }
     function supprimer(event){
@@ -93,10 +95,13 @@ export default function Exercice(){
                     type='submit' 
                     value='ajouter' 
                     onClick={handlerClick}
+                    isClicked = {isClicked}
                 />
             </form>
             
             
+            {isClicked && 
+            <>
             <div className="table-responsive mt-4 mx-3">
                 <h1 className="text">bonjour {nom}</h1>
                 <table className="table table-light text-center">
@@ -130,9 +135,8 @@ export default function Exercice(){
                     </tbody>
                 </table>
             </div> 
-            <CalculeNote
-                notes = {serie}
-            />
+            <CalculeNote notes = {serie}/>
+            </>}
         </div>
         
     )
