@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function CalculeNote(props){
    
    const [moyenne,setMoyenne] = React.useState(0)
+   const [isClicked,setIsClicked] = React.useState(false)
 
    // console.log(props.notes.map((item)=>item.note))
    function handlerClick(event){
@@ -13,6 +14,7 @@ export default function CalculeNote(props){
       },0)
       console.log(not)
       setMoyenne(parseFloat(not)/3)
+      setIsClicked(true)
    }
 
    return(
@@ -21,13 +23,12 @@ export default function CalculeNote(props){
             type="button"  
             className="btn btn-lg btn-success col-12"
             onClick={handlerClick}
+            isClicked={isClicked}
          >Calculer la moyenne</button>
          
-         {/* <ul className="list-group">
-            {props.notes.map((item)=><li className="list-group-item col-3">{item.note}</li>)}
-         </ul> */}
          
-         <h2>La moyenne est :{moyenne}</h2>
+         
+         {isClicked && <h2>La moyenne est :{moyenne}</h2>}
       </>
    )
 }
